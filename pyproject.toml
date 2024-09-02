@@ -4,6 +4,9 @@ version = "0.1.0"
 description = ""
 authors = ["ilya-ship-it <tulupov.2712@gmail.com>"]
 readme = "README.md"
+packages = [
+  { include = "gendiff" },
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"
@@ -16,3 +19,7 @@ flake8 = "^7.1.1"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+
+[tool.poetry.scripts]
+gendiff = "gendiff.scripts.gendiff:main"
