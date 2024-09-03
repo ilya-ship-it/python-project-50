@@ -18,4 +18,11 @@ jobs:
           make lint
           make test
           codecov 
+      - name: Code Coverage
+        uses: paambaati/codeclimate-action@v3.0.0
+        env:
+          CC_TEST_REPORTER_ID: 4f804d1381ef468f39911b55b9aeec541d22ecd2438c25ac68d92b996fcc5a32
+        with:
+          coverageCommand: make test-coverage
+          debug: true
     
