@@ -11,9 +11,11 @@ jobs:
       - name: Install dependencies
         run: |
           pip install poetry
+          pip install pytest-cov
           make install
       - name: Run linter and pytest
         run: |
           make lint
           make test
+          codecov 
     
