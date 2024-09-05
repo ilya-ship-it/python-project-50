@@ -13,6 +13,7 @@ def main():
     file_path_2 = args.second_file
     diff = generate_diff(file_path_1, file_path_2)
     print(diff)
+    return diff
 
 
 def generate_diff(file_path_1, file_path_2):
