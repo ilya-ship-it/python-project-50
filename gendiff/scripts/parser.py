@@ -14,5 +14,3 @@ def parse(file_path):
         raise ValueError(f"Unsupported file format: {extension}")
     with open(file_path) as file:
         return parser[extension](file)
-    
-
