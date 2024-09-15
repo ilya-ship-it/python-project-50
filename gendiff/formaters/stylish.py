@@ -1,5 +1,5 @@
 def stylish(diff):
-    result = f"'{'\n{tree_view(diff)}\n'}'"
+    result = '{\n' + tree_view(diff) + '\n}'
     return result
 
 
