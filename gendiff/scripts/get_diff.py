@@ -1,16 +1,15 @@
-def get_diff(fisrt_file, second_file):
-    keys = sorted(set(fisrt_file.keys()).union(second_file.keys()))
+def get_diff(file_1, file_2):
+    keys = sorted(set(file_1.keys()).union(file_2.keys()))
     diff = {}
-
     for key in keys:
-        if key in fisrt_file and key not in second_file:
-            diff[key] = ('removed', fisrt_file[key])
-        elif key not in fisrt_file and key in second_file:
-            diff[key] = ('added', second_file[key])
-        elif fisrt_file[key] == second_file[key]:
-            diff[key] = ('unchanged', fisrt_file[key])
-        elif isinstance(fisrt_file[key], dict) and isinstance(second_file[key], dict):
-            diff[key] = ('nested', get_diff(fisrt_file[key], second_file[key]))
+        if key in file_1 and key not in file_2:
+            diff[key] = ('removed', file_1[key])
+        elif key not in file_1 and key in file_2:
+            diff[key] = ('added', file_2[key])
+        elif file_1[key] == file_2[key]:
+            diff[key] = ('unchanged', file_1[key])
+        elif isinstance(file_1[key], dict) and isinstance(file_2[key], dict):
+            diff[key] = ('nested', get_diff(file_1[key], file_2[key]))
         else:
-            diff[key] = ('changed', (fisrt_file[key], second_file[key]))
+            diff[key] = ('changed', (file_1[key], file_2[key]))
     return diff
