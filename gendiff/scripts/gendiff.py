@@ -4,7 +4,6 @@ from gendiff.scripts.get_diff import get_diff
 from gendiff.formaters.stylish import stylish
 
 
-
 formaters = {'stylish': stylish}
 
 
@@ -21,13 +20,12 @@ def main():
     return diff
 
 
-def generate_diff(file_path_1, file_path_2, format_name ='stylish'):
+def generate_diff(file_path_1, file_path_2, format_name='stylish'):
     fisrt_file = parse(file_path_1)
     second_file = parse(file_path_2)
     diff = get_diff(fisrt_file, second_file)
     diff = formaters[format_name](diff)
     return diff
-
 
 
 if __name__ == "__main__":
