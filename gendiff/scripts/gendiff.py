@@ -1,5 +1,11 @@
 import argparse
 from gendiff.scripts.parser import parse
+from gendiff.scripts.get_diff import get_diff
+from gendiff.formaters.stylish import stylish
+
+
+
+formaters = {'stylish': stylish}
 
 
 def main():
@@ -15,24 +21,13 @@ def main():
     return diff
 
 
-def generate_diff(file_path_1, file_path_2):
+def generate_diff(file_path_1, file_path_2, format_name ='stylish'):
     fisrt_file = parse(file_path_1)
     second_file = parse(file_path_2)
-    fisrt_file = dict(sorted(fisrt_file.items()))
-    new_line_keys = list(filter(lambda key: key not in fisrt_file, second_file))
-    result = '{'
-    for key, value in fisrt_file.items():
-        if key not in second_file:
-            result += f"\n    - {key}: {value}"
-        elif value != second_file[key]:
-            result += f"\n    - {key}: {value}"
-            result += f"\n    + {key}: {second_file[key]}"
-        else:
-            result += f"\n      {key}: {value}"
-    for key in new_line_keys:
-        result += f"\n    + {key}: {second_file[key]}"
-    result += '\n}'
-    return result
+    diff = get_diff(fisrt_file, second_file)
+    diff = formaters[format_name](diff)
+    return diff
+
 
 
 if __name__ == "__main__":
