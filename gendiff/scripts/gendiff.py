@@ -2,9 +2,14 @@ import argparse
 from gendiff.scripts.parser import parse
 from gendiff.scripts.get_diff import get_diff
 from gendiff.formaters.stylish import stylish
+from gendiff.formaters.plain import plain
 
 
-formaters = {'stylish': stylish}
+formaters = {
+    'stylish': stylish,
+    'plain': plain,
+    }
+
 
 
 def main():
@@ -16,7 +21,8 @@ def main():
     args = parser.parse_args()
     file_path_1 = args.first_file
     file_path_2 = args.second_file
-    diff = generate_diff(file_path_1, file_path_2)
+    formater = args.format
+    diff = generate_diff(file_path_1, file_path_2, formater)
     return diff
 
 
