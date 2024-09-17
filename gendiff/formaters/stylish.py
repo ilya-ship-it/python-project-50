@@ -34,10 +34,10 @@ def create_formatted_line(lines, key, value, depth, action):
 def add_indent_and_format(depth, lines, prefix, key, value):
     formated_value = format_value(value, depth + 1)
     indent = (4 * depth - 2) * ' '
-    if formated_value:
-        lines.append(f"{indent}{prefix}{key}: {formated_value}")
-    else:
-        lines.append(f"{indent}{prefix}{key}:")
+    # if formated_value:
+    lines.append(f"{indent}{prefix}{key}: {formated_value}")
+    # else:
+    #     lines.append(f"{indent}{prefix}{key}:")
     return lines
 
 
