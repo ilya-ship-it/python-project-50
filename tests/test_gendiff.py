@@ -12,7 +12,9 @@ from gendiff.scripts.gendiff import generate_diff
     ("tests/fixtures/filepath3.yaml", "tests/fixtures/filepath4.yaml",
     "tests/fixtures/expected_2.txt", "stylish"),
     ("tests/fixtures/filepath3.json", "tests/fixtures/filepath4.json",
-    "tests/fixtures/expected_3.txt", "plain")
+    "tests/fixtures/expected_3.txt", "plain"),
+    ("tests/fixtures/filepath3.json", "tests/fixtures/filepath4.json",
+    "tests/fixtures/expected_4.txt", "json")   
     ])
 def test_generate_diff(file_1, file_2, expected, formater):
     diff = generate_diff(file_1, file_2, formater)
