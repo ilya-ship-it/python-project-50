@@ -24,7 +24,7 @@ def main():
     file_path_2 = args.second_file
     formater = args.format
     diff = generate_diff(file_path_1, file_path_2, formater)
-    return diff
+    print(diff)
 
 
 def generate_diff(file_path_1, file_path_2, format_name='stylish'):
