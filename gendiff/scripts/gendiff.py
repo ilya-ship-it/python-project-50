@@ -3,13 +3,13 @@ from gendiff.scripts.parser import parse
 from gendiff.scripts.get_diff import get_diff
 from gendiff.formaters.stylish import stylish
 from gendiff.formaters.plain import plain
-
+from gendiff.formaters.json import json_format
 
 formaters = {
     'stylish': stylish,
     'plain': plain,
-    }
-
+    'json': json_format,
+}
 
 
 def main():
